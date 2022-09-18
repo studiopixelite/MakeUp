@@ -3,10 +3,11 @@
 This project was created with Android Studio: Chipmunk
 
 The following library was used:
+
 ○ Kotlin<br/>
-○ Coroutines
-○ Retrofit
-○ Jetpack – Lifecycle, ViewModel, View Binding
-○ Navigation Component
-○ Timber
-○ Github Actions
+○ Coroutines<br/>
+○ Retrofit<br/>
+○ Jetpack – Lifecycle, ViewModel, View Binding<br/>
+○ Navigation Component<br/>
+○ Timber<br/>
+○ Github Actions<br/>
