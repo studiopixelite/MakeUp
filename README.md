@@ -1,8 +1,8 @@
 # MakeUp
 
-This project was created with Android Studio: Chipmunk,
-Android Gradle Plugin: 7.2.1
-Gradle Version: 7.3.3
+This project was created with Android Studio: Chipmunk,<br/>
+Android Gradle Plugin: 7.2.1<br/>
+Gradle Version: 7.3.3<br/>
 
 The following library/technologies were used:
 
