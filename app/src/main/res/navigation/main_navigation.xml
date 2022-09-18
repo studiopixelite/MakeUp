@@ -9,18 +9,5 @@
         android:id="@+id/itemsFragment"
         android:name="com.makeup.view.fragment.ItemsFragment"
         android:label="fragment_items"
-        tools:layout="@layout/fragment_items" >
-        <action
-            android:id="@+id/action_itemsFragment_to_itemDetailsFragment"
-            app:destination="@id/itemDetailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/itemDetailsFragment"
-        android:name="com.makeup.view.fragment.ItemDetailsFragment"
-        android:label="fragment_item_details"
-        tools:layout="@layout/fragment_item_details" >
-        <action
-            android:id="@+id/action_itemDetailsFragment_to_itemsFragment"
-            app:destination="@id/itemsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_items" />
 </navigation>

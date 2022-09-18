@@ -6,6 +6,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.makeup.databinding.ActivityMainBinding
 import com.makeup.viewmodel.MainViewModel
 
+/*
+The MainActivity houses the ItemsFragment(), it is the first screen
+that shows to the user
+ */
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     

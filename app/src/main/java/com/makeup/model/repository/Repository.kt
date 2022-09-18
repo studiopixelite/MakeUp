@@ -10,8 +10,8 @@ class Repository {
         return RetrofitInstance.api.getItem()
     }
 
-    suspend fun getItems(id: Int) : Response<List<Item>> {
-        return RetrofitInstance.api.getItems(id)
+    suspend fun getItems() : Response<List<Item>> {
+        return RetrofitInstance.api.getItems()
     }
 
 }

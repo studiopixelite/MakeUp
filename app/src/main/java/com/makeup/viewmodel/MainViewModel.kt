@@ -12,6 +12,9 @@ import retrofit2.Response
 class MainViewModel(private val repository: Repository ): ViewModel() {
 
     /**
+     * itemsResponse collects the response from the API and
+     * store it as a MutableLiveData, this avoid crashes as it is aware
+     * of lifecycles (of an activity or fragment)
      */
     val itemResponse: MutableLiveData<Response<Item>> = MutableLiveData()
     val itemsResponse: MutableLiveData<Response<List<Item>>> = MutableLiveData()
@@ -23,9 +26,13 @@ class MainViewModel(private val repository: Repository ): ViewModel() {
         }
     }
 
-    fun getItems(id: Int) {
+    /*
+    getItems() gets the response from the Repository and pass into
+    itemsResponse
+     */
+    fun getItems() {
         viewModelScope.launch {
-            val response = repository.getItems(id)
+            val response = repository.getItems()
             itemsResponse.value = response
 
         }

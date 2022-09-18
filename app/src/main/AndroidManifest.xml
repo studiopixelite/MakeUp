@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Makeup"
         tools:targetApi="31">
         <activity
+            android:name=".view.activity.ItemDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.MainActivity"
             android:exported="true">
             <intent-filter>

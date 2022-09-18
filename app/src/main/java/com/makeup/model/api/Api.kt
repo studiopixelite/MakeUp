@@ -11,11 +11,9 @@ interface Api {
     @GET("api/v1/products.json")
     suspend fun getItem (): Response<Item>
 
-    /* This function gets the values from the item data class, suspend is used
+    /* This function gets the values of the items from the Item data class as a list, suspend is used
     because we will call this method in a Coroutine
     */
     @GET("api/v1/products.json")
-    suspend fun getItems (
-        @Query("id") id: Int
-    ): Response<List<Item>>
+    suspend fun getItems (): Response<List<Item>>
 }

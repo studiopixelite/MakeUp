@@ -48,27 +48,52 @@ class ItemsFragment : Fragment() {
         }
     }
 
+    /*
+    In simple terms, the onViewCreated() is called once the view/screen is created,
+    it runs after the onCreateView() an it is safer to use as method is called after the
+    view has been created
+
+    In it is the Repository which connects the data gotten from the API
+    into the ViewModel
+
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
 
-        val repository = Repository()
-        val viewModelFactory = MainViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-        viewModel.getItems(0)
-        viewModel.itemsResponse.observe(viewLifecycleOwner) { response ->
-            if(response.isSuccessful){
-                response.body()?.let { mainAdapter.setData(it) }
+        try {
+            val repository = Repository()
+            val viewModelFactory = MainViewModelFactory(repository)
+            viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+            viewModel.getItems()
+
+            /* This observes the respinse and pass it into the MainAdapter for the
+            data to be displayed in the RecyclerView
+             */
+            viewModel.itemsResponse.observe(viewLifecycleOwner) { response ->
+                if(response.isSuccessful){
+                    response.body()?.let { mainAdapter.setData(it) }
+                    binding.progressBar.visibility = View.GONE
+                }
+
+                else{
+                    Toast.makeText(requireContext(), "Data could not be gotten", Toast.LENGTH_SHORT).show()
+                }
+
             }
 
-            else{
-                Toast.makeText(requireContext(), "Data could not be gotten, please check your internet connection", Toast.LENGTH_SHORT).show()
-            }
-
+        }catch (e: Exception){
+            Toast.makeText(requireContext(), "Error! Please reload the app", Toast.LENGTH_SHORT).show()
         }
+
+
     }
 
+    /*
+    setupRecyclerView() binds the recyclerView's adapter to the MainAdapter
+    and also defines the layout of the RecyclerView to be in a grid form
+     */
     private fun setupRecyclerView(){
         binding.recyclerView.adapter = mainAdapter
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
