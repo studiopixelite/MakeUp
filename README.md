@@ -10,5 +10,3 @@ The following library was used:
 ○ Navigation Component
 ○ Timber
 ○ Github Actions
-
-![Screenshot](screenshot.png)
